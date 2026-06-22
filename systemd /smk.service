@@ -1,0 +1,13 @@
+[Unit]
+Description=SMK SMS Service
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/root/smk
+ExecStart=/root/smk/venv/bin/python /root/smk/server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
