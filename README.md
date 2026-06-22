@@ -35,3 +35,92 @@ smk-project/
 └── elk/
     ├── docker-compose.yml
     └── filebeat.yml
+
+## Installation
+
+```bash
+sudo apt update
+sudo apt install python3.12-venv -y
+
+python3 -m venv venv
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+## Configuration
+
+Edit `server.py` and configure:
+
+- CDR_URL
+- CDR_USER
+- CDR_PASS
+- SMS_URL
+- SMS_USER
+- SMS_PASS
+- SENDER
+
+## Run
+
+```bash
+source venv/bin/activate
+python3 server.py
+```
+
+## Run as a Service
+
+```bash
+sudo cp systemd/smk.service /etc/systemd/system/
+
+sudo systemctl daemon-reload
+sudo systemctl enable sms
+sudo systemctl start sms
+sudo systemctl status sms
+```
+
+## ELK Monitoring
+
+Start Elasticsearch, Kibana and Filebeat.
+
+```bash
+cd elk
+docker compose up -d
+```
+
+Kibana:
+
+```
+http://SERVER_IP:5601
+```
+
+## Logs
+
+Application log:
+
+```bash
+tail -f log/smk.log
+```
+
+## Workflow
+
+```
+Incoming Call
+      │
+      ▼
+   CDR API
+      │
+      ▼
+ Python Service
+      │
+ ├── Send SMS
+ └── Write Log
+          │
+          ▼
+      Filebeat
+          │
+          ▼
+   Elasticsearch
+          │
+          ▼
+       Kibana
+```
