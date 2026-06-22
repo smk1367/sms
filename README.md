@@ -70,7 +70,6 @@ python3 server.py
 
 ```bash
 sudo cp systemd/smk.service /etc/systemd/system/
-
 sudo systemctl daemon-reload
 sudo systemctl enable sms
 sudo systemctl start sms
@@ -82,7 +81,7 @@ sudo systemctl status sms
 Start Elasticsearch, Kibana and Filebeat.
 
 ```bash
-cd elk
+cd ELK
 docker compose up -d
 ```
 
