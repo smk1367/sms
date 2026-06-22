@@ -1,0 +1,2 @@
+mkdir log
+touch log/.gitkeep
