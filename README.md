@@ -35,6 +35,7 @@ smk-project/
 └── elk/
     ├── docker-compose.yml
     └── filebeat.yml
+```
 
 ## Installation
 
