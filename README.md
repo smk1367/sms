@@ -1,4 +1,4 @@
-# SMK SMS Service
+# SMS Service
 
 This project monitors CDR logs and sends SMS automatically when a target call pattern is detected.
 
