@@ -20,10 +20,18 @@ This project monitors CDR logs and sends SMS automatically when a target call pa
 ## Project Structure
 ```bash
 smk-project/
+│
 ├── server.py
-├── requirements.txt
 ├── README.md
+├── requirements.txt
 ├── .gitignore
+│
 ├── log/
+│   └── .gitkeep
+│
 ├── systemd/
+│   └── smk.service
+│
 └── elk/
+    ├── docker-compose.yml
+    └── filebeat.yml
