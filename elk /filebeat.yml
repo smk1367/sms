@@ -1,0 +1,15 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /logs/smk.log
+
+processors:
+
+  - dissect:
+      tokenizer: "%{ts} | %{level} | %{msg} | FROM=%{from} | TO=%{to}"
+      field: "message"
+      target_prefix: ""
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
