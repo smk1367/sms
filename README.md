@@ -1,6 +1,8 @@
 # SMS Service
 
-This project monitors CDR logs and sends SMS automatically when a target call pattern is detected.
+A Python service for Grandstream UCM IP PBX systems.
+
+This project monitors CDR records from a Grandstream UCM system and sends SMS automatically when specific call conditions are detected.
 
 ## Features
 - Reads call records from CDR API
